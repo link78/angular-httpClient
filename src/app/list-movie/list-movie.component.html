@@ -1,0 +1,41 @@
+<div class="container wrapper">
+    <div class="row">
+
+        <!-- Issue table -->
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>My Movies</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Released</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let movies of movieList">
+                            <th scope="row">{{movies.id}}</th>
+                            <td>{{movies.title}}</td>
+                            <td>{{movies.genre}}</td>
+                            <td>{{movies.price}}</td>
+                            <td>{{movies.released}}</td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm move-right"
+                                 [routerLink]="['/edit-movie/', movies.id]">Edit</button>
+
+                                <button type="button" class="btn btn-danger btn-sm" 
+                                (click)="deleteMovie(movies)">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
