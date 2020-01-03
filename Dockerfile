@@ -10,11 +10,12 @@ WORKDIR /app
 COPY . .
 
 #install json-server and start it
-RUN npm install -g json-server && json-server --watch backend/db.json
+RUN npm install -g json-server
 
 #install dependencies and run app
 RUN npm install && \
-    npm run build
+    npm run build && \
+    json-server backend/db.json
 
 #image for deploy
 FROM nginx:alpine
